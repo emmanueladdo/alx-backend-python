@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Function that somes mixed lists
+Function that somes mixed lists and returns mixed list
 """
 from typing import List, Union
 
