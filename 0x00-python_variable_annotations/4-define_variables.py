@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
 """
 Variable Definitions
 """
-
 # An integer with a value of 1
 a: int = 1
 """
