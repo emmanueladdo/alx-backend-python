@@ -1,6 +1,7 @@
 #!/usr/bin/env pyhton3
 """
 Takes list as argument and return sum as float
+ input_list of floats as argument and returns their sum as a float
 """
 from typing import List
 
