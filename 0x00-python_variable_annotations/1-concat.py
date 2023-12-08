@@ -3,6 +3,7 @@
 Concatenates two strings and returns the result.
 """
 
+
 def concat(str1: str, str2: str) -> str:
     """
     Parameters:
