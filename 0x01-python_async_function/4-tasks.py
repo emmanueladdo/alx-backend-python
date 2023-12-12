@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-this module contains a new function task_wait_n spawns tasks n times with a
+The module contains a new function
+task_wait_n spawns tasks n times with a
 given delay between each function call
 """
 
