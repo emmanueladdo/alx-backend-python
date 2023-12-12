@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-This module contains a regular function with integers n and max_delay as
-arguments that measures the total execution time for wait_n(n, max_delay), and
- returns total_time / n. Your function should return a float.
-time module is used to measure an approximate elapsed time.
+The module contains regular function with integers n and max_delay as
+arguments that measures the total execution time for wait_n(n, max_delay),
+returns total_time / n. The function should return a float.
+time module is used to measure approximate elapsed time.
 """
 
 import asyncio
