@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-This module contain a coroutine named wait_random that takes an int argument
+The module contains a coroutine that takes an int argument
  max_delay that waits for random delay between 0 and max_delay seconds and
  eventual returns it.
 """
