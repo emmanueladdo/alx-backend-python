@@ -3,14 +3,13 @@
 Unitest module for tasks
 """
 
-import unittest
-from unittest import mock
+from unittest import TestCase
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
 
 
-class TestAccessNestedMap(unittest.TestCase):
+class TestAccessNestedMap(TestCase):
     """
     Test for AccessnestedMap
     """
@@ -35,7 +34,7 @@ class TestAccessNestedMap(unittest.TestCase):
             self.assertEqual(wrong_output, ex.exception)
 
 
-class TestGetJson(unittest.TestCase):
+class TestGetJson(TestCase):
     """
     Class that tests the get JSON function
     """
@@ -63,7 +62,7 @@ class TestGetJson(unittest.TestCase):
         self.assertEqual(result, test_payload)
 
 
-class TestMemoize(unittest.TestCase):
+class TestMemoize(TestCase):
     """ Class for testing memoization for the testMemoize"""
 
     def test_memoize(self):
