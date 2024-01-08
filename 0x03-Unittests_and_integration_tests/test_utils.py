@@ -69,7 +69,7 @@ class TestMemoize(unittest.TestCase):
         """ Tests memoize function """
 
         class TestClass:
-            """ Test class """
+            """ Test class for the test module"""
 
             def a_method(self):
                 """ Method to always return 42
