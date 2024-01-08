@@ -62,29 +62,44 @@ class TestGetJson(TestCase):
         self.assertEqual(result, test_payload)
 
 
-class TestMemoize(TestCase):
-    """ Class for testing memoization for the testMemoize"""
+class TestMemoize(unittest.TestCase):
+    """Class for testing memoization"""
+
+    class TestClass:
+        """Test class"""
+
+        def a_method(self):
+            """Method to always return 42"""
+            return 42
+
+        @memoize
+        def a_property(self):
+            """Returns memoized property"""
+            return self.a_method()
 
     def test_memoize(self):
-        """ Tests memoize function """
+        """Test memoization behavior"""
 
-        class TestClass:
-            """ Test class for the test module"""
+        # Create an instance of TestClass
+        test = self.TestClass()
 
-            def a_method(self):
-                """ Method to always return 42
-                """
-                return 42
+        # Mock the a_method using patch
+        with patch.object(test, 'a_method', return_value=42) as patched:
 
-            @memoize
-            def a_property(self):
-                """ Returns memoized property """
-                return self.a_method()
+            # Access the memoized property twice
+            result1 = test.a_property
+            result2 = test.a_property
 
-        with patch.object(TestClass, 'a_method', return_value=42) as patched:
-            test_class = TestClass()
-            real_return = test_class.a_property
-            real_return = test_class.a_property
+            # Assert that the return value is correct
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
 
-            self.assertEqual(real_return, 42)
+            # Assert that the underlying method was only called once
             patched.assert_called_once()
+
+            # Additional assertion:
+            # Ensure that the method is not called again on the second access
+            patched.reset_mock()  # Reset the call count for the mock
+            result3 = test.a_property
+            patched.assert_not_called()
+            self.assertEqual(result3, 42)
