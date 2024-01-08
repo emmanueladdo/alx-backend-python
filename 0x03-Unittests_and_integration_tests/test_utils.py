@@ -4,6 +4,7 @@ Unitest module for tasks
 """
 
 import unittest
+from unittest import mock
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
