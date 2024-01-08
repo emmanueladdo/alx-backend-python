@@ -5,7 +5,7 @@ Unitest module for tasks
 
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map, get_json
+from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
 
 
@@ -60,3 +60,30 @@ class TestGetJson(unittest.TestCase):
 
         # Assert that the output of get_json is equal to test_payload
         self.assertEqual(result, test_payload)
+
+
+class TestMemoize(unittest.TestCase):
+    """ Class for testing memoization """
+
+    def test_memoize(self):
+        """ Tests memoize function """
+
+        class TestClass:
+            """ Test class """
+
+            def a_method(self):
+                """ Method to always return 42 """
+                return 42
+
+            @memoize
+            def a_property(self):
+                """ Returns memoized property """
+                return self.a_method()
+
+        with patch.object(TestClass, 'a_method', return_value=42) as patched:
+            test_class = TestClass()
+            real_return = test_class.a_property
+            real_return = test_class.a_property
+
+            self.assertEqual(real_return, 42)
+            patched.assert_called_once()
